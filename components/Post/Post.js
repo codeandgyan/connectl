@@ -21,7 +21,7 @@ export default function Post({
       {/* PostFooter */}
       <View style={styles.footer}>
         <View style={styles.statsBox}>
-          <AntDesign name="hearto" size={24} color="white" />
+          <AntDesign name="hearto" size={24} color={styles.statsLabel.color} />
           <Text style={[globalStyles.text, styles.statsLabel]}>
             {numberOfLikes}
           </Text>
@@ -76,12 +76,13 @@ const styles = StyleSheet.create({
   statsLabel: {
     fontSize: 13,
     fontWeight: 500,
+    color: "#939396",
   },
   chatButton: {
-    // backgroundColor: "#5271FF",
+    backgroundColor: "#3c3c40",
     borderStyle: "solid",
     borderWidth: 2,
-    borderColor: "#FFF",
+    borderColor: "#6f6f73",
     borderRadius: 25,
     width: 102,
     padding: 8,
@@ -92,5 +93,6 @@ const styles = StyleSheet.create({
   chatLabel: {
     fontSize: 16,
     fontWeight: 600,
+    color: "#FFDE59",
   },
 });

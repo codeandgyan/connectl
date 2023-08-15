@@ -1,16 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import Navigation from "./Navigation";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+const queryClient = new QueryClient();
 export default function App() {
   return (
     <>
-      <Navigation />
+      <QueryClientProvider client={queryClient}>
+        <Navigation />
+      </QueryClientProvider>
     </>
-    // <View style={styles.container}>
-    //   <Text style={styles.text}>Let's develop connectl</Text>
-    //   <StatusBar style="auto" />
-    // </View>
   );
 }
 

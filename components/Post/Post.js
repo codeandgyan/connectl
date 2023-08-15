@@ -3,21 +3,17 @@ import React from "react";
 import PostHeader from "./PostHeader";
 import { AntDesign } from '@expo/vector-icons';
 
-export default function Post() {
+export default function Post({headline, description, userid}) {
   return (
     <View style={styles.container}>
-      <PostHeader />
+      <PostHeader userid={userid} />
       {/* PostHeadline */}
       <Text style={[styles.text, styles.headline]}>
-        Seeking career guidance
+        {headline}
       </Text>
       {/* PostBody */}
       <Text style={[styles.text, styles.body]}>
-        I’ve completed my bachelor in Computer Science Engineering. I want to
-        get into Artificial Intelligence and machine learning, but I have no
-        idea on where to start. I would appreciate any working professionals on
-        the field of Software Engineering to provide guidance to me to get
-        started.
+        {description}
       </Text>
       {/* PostFooter */}
       <View style={styles.footer}>

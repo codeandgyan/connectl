@@ -1,24 +1,44 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import PostHeader from "./PostHeader";
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, MaterialIcons } from "@expo/vector-icons";
+import globalStyles from "../../styles/global-styles";
 
-export default function Post({headline, description, userid}) {
+export default function Post({
+  headline,
+  description,
+  userid,
+  numberOfLikes,
+  numberOfConnections,
+}) {
   return (
     <View style={styles.container}>
       <PostHeader userid={userid} />
       {/* PostHeadline */}
-      <Text style={[styles.text, styles.headline]}>
-        {headline}
-      </Text>
+      <Text style={[globalStyles.text, styles.headline]}>{headline}</Text>
       {/* PostBody */}
-      <Text style={[styles.text, styles.body]}>
-        {description}
-      </Text>
+      <Text style={[globalStyles.text, styles.body]}>{description}</Text>
       {/* PostFooter */}
       <View style={styles.footer}>
-        <AntDesign name="like2" size={24} color="white" />
-        <Text style={styles.text}>27</Text>
+        <View style={styles.statsBox}>
+          <AntDesign name="hearto" size={24} color="white" />
+          <Text style={[globalStyles.text, styles.statsLabel]}>
+            {numberOfLikes}
+          </Text>
+        </View>
+        {/* <View style={styles.statsBox}>
+          <MaterialIcons
+            name="connect-without-contact"
+            size={32}
+            color="white"
+          />
+          <Text style={[globalStyles.text, styles.statsLabel]}>
+            {numberOfConnections}
+          </Text>
+        </View> */}
+        <Pressable style={styles.chatButton}>
+          <Text style={[globalStyles.text, styles.chatLabel]}>Chat</Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -30,9 +50,6 @@ const styles = StyleSheet.create({
     marginTop: 2,
     paddingHorizontal: 22,
     paddingVertical: 15,
-  },
-  text: {
-    color: "#FFFFFF",
   },
   headline: {
     marginVertical: 12,
@@ -47,6 +64,33 @@ const styles = StyleSheet.create({
   },
   footer: {
     flexDirection: "row",
-    alignItems: "center"
-  }
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  statsBox: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    minWidth: 42,
+  },
+  statsLabel: {
+    fontSize: 13,
+    fontWeight: 500,
+  },
+  chatButton: {
+    // backgroundColor: "#5271FF",
+    borderStyle: "solid",
+    borderWidth: 2,
+    borderColor: "#FFF",
+    borderRadius: 25,
+    width: 102,
+    padding: 8,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  chatLabel: {
+    fontSize: 16,
+    fontWeight: 600,
+  },
 });

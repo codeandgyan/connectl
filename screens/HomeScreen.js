@@ -1,10 +1,18 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import Post from "../components/Post/Post";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { Entypo } from "@expo/vector-icons";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const { isLoading: postLoading, data: posts } = useQuery("posts", () => {
     return axios.get("https://jsonplaceholder.typicode.com/posts");
   });
@@ -13,9 +21,22 @@ const HomeScreen = () => {
     return axios.get("https://jsonplaceholder.typicode.com/users");
   });
 
+  const navigateTo = (toScreen) => {
+    navigation.navigate(toScreen);
+  };
+
   const renderPost = (post) => {
     const postData = post.item;
-    return <Post headline={postData.title} description={postData.body} userid={postData.userId}/>;
+    return (
+      <Post
+        headline={postData.title}
+        description={postData.body}
+        userid={postData.userId}
+        numberOfLikes={27} //TODO: Remove Hardcoding
+        numberOfConnections={2} //TODO: Remove Hardcoding
+        key={post.id}
+      />
+    );
   };
 
   // if (isLoading) {
@@ -27,12 +48,22 @@ const HomeScreen = () => {
   // }
 
   return (
-    <FlatList style={styles.container} data={posts?.data} renderItem={renderPost} keyExtractor={post => post.id} />
-    // <View style={styles.container}>
-    //   <Post />
-    //   <Post />
-    //   <Post />
-    // </View>
+    <>
+      <FlatList
+        style={styles.container}
+        data={posts?.data}
+        renderItem={renderPost}
+        keyExtractor={(post) => post.id}
+      />
+      <TouchableOpacity style={styles.addPost}>
+        <Pressable
+          style={styles.plusButton}
+          onPress={() => navigateTo("CreatePost")}
+        >
+          <Entypo name="plus" size={48} color="white" />
+        </Pressable>
+      </TouchableOpacity>
+    </>
   );
 };
 
@@ -43,7 +74,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#4B4B50",
     flex: 1,
   },
-  text: {
-    color: "#FFFFFF",
+  addPost: {
+    position: "absolute",
+    flex: 1,
+    left: "40%",
+    right: '40%',
+    bottom: 80,
+  },
+  plusButton: {
+    backgroundColor: "#5271FF",
+    width: 65,
+    height: 65,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

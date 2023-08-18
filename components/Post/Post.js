@@ -3,6 +3,7 @@ import React from "react";
 import PostHeader from "./PostHeader";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import globalStyles from "../../styles/global-styles";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Post({
   headline,
@@ -11,6 +12,7 @@ export default function Post({
   numberOfLikes,
   numberOfConnections,
 }) {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <PostHeader userid={userid} />
@@ -30,13 +32,16 @@ export default function Post({
           <MaterialIcons
             name="connect-without-contact"
             size={32}
-            color="white"
+            color={globalStyles.text.color}
           />
           <Text style={[globalStyles.text, styles.statsLabel]}>
             {numberOfConnections}
           </Text>
         </View> */}
-        <Pressable style={styles.chatButton}>
+        <Pressable
+          style={styles.chatButton}
+          onPress={() => navigation.navigate("Chat")}
+        >
           <Text style={[globalStyles.text, styles.chatLabel]}>Chat</Text>
         </Pressable>
       </View>
@@ -46,7 +51,7 @@ export default function Post({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#181818",
+    backgroundColor: globalStyles.secondaryContainer.backgroundColor,
     marginTop: 2,
     paddingHorizontal: 22,
     paddingVertical: 15,
@@ -61,6 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontStyle: "normal",
     fontWeight: 400,
+    color: "#b3b3b6",
   },
   footer: {
     flexDirection: "row",

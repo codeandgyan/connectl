@@ -1,10 +1,11 @@
 import { Pressable, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
+import globalStyles from "../styles/global-styles";
 
 const ChatScreen = ({ navigation }) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={[globalStyles.container, styles.container]}>
       <Pressable onPress={() => navigation.navigate("Main")}>
         <Ionicons name="arrow-back-sharp" size={48} color="black" />
       </Pressable>
@@ -15,4 +16,6 @@ const ChatScreen = ({ navigation }) => {
 
 export default ChatScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {},
+});

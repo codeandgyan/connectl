@@ -11,6 +11,7 @@ import Post from "../components/Post/Post";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { Entypo } from "@expo/vector-icons";
+import globalStyles from "../styles/global-styles";
 
 const HomeScreen = ({ navigation }) => {
   const { isLoading: postLoading, data: posts } = useQuery("posts", () => {
@@ -49,18 +50,20 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <>
+      {/* Posts Feed */}
       <FlatList
-        style={styles.container}
+        style={[globalStyles.container, styles.container]}
         data={posts?.data}
         renderItem={renderPost}
         keyExtractor={(post) => post.id}
       />
+      {/* Floating + icon */}
       <TouchableOpacity style={styles.addPost}>
         <Pressable
           style={styles.plusButton}
           onPress={() => navigateTo("CreatePost")}
         >
-          <Entypo name="plus" size={48} color="white" />
+          <Entypo name="plus" size={48} color={globalStyles.text.color} />
         </Pressable>
       </TouchableOpacity>
     </>
@@ -71,7 +74,6 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#4B4B50",
     flex: 1,
   },
   addPost: {

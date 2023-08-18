@@ -5,6 +5,7 @@ import { Entypo, AntDesign, Ionicons } from "@expo/vector-icons";
 import NotificationScreen from "../screens/NotificationScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import { StyleSheet } from "react-native";
+import globalStyles from "../styles/global-styles";
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +14,7 @@ function Footer() {
     <Tab.Navigator
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: "#181818",
+          backgroundColor: globalStyles.secondaryContainer.backgroundColor,
           position: "absolute",
           bottom: 0,
           left: 0,

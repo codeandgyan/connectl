@@ -21,6 +21,7 @@ export default function PostHeader({ userid }) {
         <Text style={[globalStyles.text, styles.nameLabel]}>
           {postUser?.name}
         </Text>
+        <Text style={styles.categoryLabel}>Software Engineering</Text>
         <Text
           style={[globalStyles.text, styles.userInfoLabel]}
         >{`@${postUser?.username?.toLowerCase()} • Student • 14h`}</Text>
@@ -38,10 +39,11 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderStyle: "solid",
     borderWidth: 1,
-    width: 32,
-    height: 32,
+    width: 40,
+    height: 40,
     justifyContent: "center",
     alignItems: "center",
+    marginVertical: 4,
   },
   profileLabel: {
     fontSize: 14,
@@ -51,6 +53,19 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontStyle: "normal",
     fontWeight: 600,
+    paddingVertical: 2,
+  },
+  categoryLabel: {
+    color: "#38B6FF",
+    alignSelf: "flex-start",
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: "#38B6FF",
+    paddingHorizontal: 4,
+    paddingVertical: 2,
+    fontSize: 12,
+    fontFamily: "",
+    marginVertical: 4,
   },
   userInfoLabel: {
     fontSize: 10,

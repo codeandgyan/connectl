@@ -8,7 +8,6 @@ const HorizontalLine = ({ color, width }) => {
         {
           borderBottomColor: color,
           borderBottomWidth: width ?? StyleSheet.hairlineWidth,
-          marginVertical: 12,
         },
       ]}
     />

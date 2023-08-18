@@ -52,7 +52,7 @@ export default function Post({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: globalStyles.secondaryContainer.backgroundColor,
-    marginTop: 2,
+    marginTop: 1,
     paddingHorizontal: 22,
     paddingVertical: 15,
   },
@@ -85,11 +85,11 @@ const styles = StyleSheet.create({
     color: "#939396",
   },
   chatButton: {
-    backgroundColor: "#3c3c40",
+    // backgroundColor: "#3c3c40",
     borderStyle: "solid",
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: "#6f6f73",
-    borderRadius: 25,
+    borderRadius: 15,
     width: 102,
     padding: 8,
     flexDirection: "row",
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
   chatLabel: {
     fontSize: 16,
-    fontWeight: 600,
+    fontWeight: 500,
     color: "#FFDE59",
   },
 });

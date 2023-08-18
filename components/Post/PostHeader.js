@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontStyle: "normal",
     fontWeight: 400,
+    color: "#b3b3b6",
   },
   postInfo: { flex: 1, paddingLeft: 10 },
 });

@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import CreatePostScreen from "./screens/CreatePostScreen";
+import ChatScreen from "./screens/ChatScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,14 @@ const Navigation = () => {
           component={CreatePostScreen}
           options={{
             headerShown: false,
+            animation: "slide_from_bottom"
+          }}
+        />
+        <Stack.Screen
+          name="Chat"
+          component={ChatScreen}
+          options={{
+            headerShown: false,
           }}
         />
       </Stack.Navigator>
@@ -33,9 +42,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-const styles = StyleSheet.create({
-  main: {
-    backgroundColor: "#181818",
-  },
-});

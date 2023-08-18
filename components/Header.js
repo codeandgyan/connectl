@@ -1,7 +1,8 @@
 import { Image, SafeAreaView, StyleSheet, Text } from "react-native";
 import React from "react";
+import globalStyles from "../styles/global-styles";
 
-const LogoImage = require("../assets/connectl-logo.png");
+const LogoImage = require("../assets/connectl-logo-draft2.png");
 
 export default function Header() {
   return (
@@ -13,9 +14,10 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#181818",
+    backgroundColor: globalStyles.secondaryContainer.backgroundColor,
     flexDirection: "row",
     justifyContent: "center",
     paddingTop: 40,
+    paddingBottom: 8,
   },
 });

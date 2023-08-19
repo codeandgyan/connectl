@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingVertical: 4,
   },
   statsBox: {
     flexDirection: "row",
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     borderColor: "#6f6f73",
     borderRadius: 15,
     width: 102,
-    padding: 8,
+    padding: 6,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",

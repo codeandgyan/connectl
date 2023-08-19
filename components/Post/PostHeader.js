@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 400,
   },
+  postInfo: { flex: 1, paddingLeft: 10 },
   nameLabel: {
     fontSize: 13,
     fontStyle: "normal",
@@ -73,5 +74,4 @@ const styles = StyleSheet.create({
     fontWeight: 400,
     color: "#b3b3b6",
   },
-  postInfo: { flex: 1, paddingLeft: 10 },
 });

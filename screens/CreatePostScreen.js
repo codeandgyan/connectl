@@ -11,12 +11,13 @@ import {
   Platform,
 } from "react-native";
 import React, { useState } from "react";
-import { Ionicons } from "@expo/vector-icons";
 import globalStyles from "../styles/global-styles";
 import PostHeader from "../components/Post/PostHeader";
 import HorizontalLine from "../components/Common/HorizontalLine";
+import { useNavigation } from "@react-navigation/native";
 
-const CreatePostScreen = ({ navigation }) => {
+const CreatePostScreen = () => {
+  const navigation = useNavigation();
   const [headLineValue, setHeadlineValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
   return (
@@ -27,7 +28,7 @@ const CreatePostScreen = ({ navigation }) => {
         <KeyboardAvoidingView
           style={{ flex: 1 }}
           behavior={Platform.OS === "ios" ? "padding" : null}
-          keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0} // Adjust this value as needed
+          // keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0} // Adjust this value as needed
         >
           <View style={[styles.container]}>
             <View style={styles.header}>

@@ -54,12 +54,16 @@ function Footer() {
           tabBarIcon: ({ focused }) =>
             focused ? (
               <Ionicons
-                name="search-circle"
+                name="compass"
                 size={24}
                 color={styles.selected.color}
               />
             ) : (
-              <AntDesign name="find" size={24} color={styles.default.color} />
+              <Ionicons
+                name="compass-outline"
+                size={24}
+                color={styles.default.color}
+              />
             ),
         }}
       />

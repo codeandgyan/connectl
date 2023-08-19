@@ -1,5 +1,6 @@
 import {
   FlatList,
+  Platform,
   Pressable,
   StyleSheet,
   Text,
@@ -10,8 +11,9 @@ import React from "react";
 import Post from "../components/Post/Post";
 import { useQuery } from "react-query";
 import axios from "axios";
-import { Entypo } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import globalStyles from "../styles/global-styles";
+import HorizontalLine from "../components/Common/HorizontalLine";
 
 const HomeScreen = ({ navigation }) => {
   const { isLoading: postLoading, data: posts } = useQuery("posts", () => {
@@ -40,6 +42,7 @@ const HomeScreen = ({ navigation }) => {
     );
   };
 
+  // TODO: show loading animation
   // if (isLoading) {
   //   return (
   //     <View>
@@ -52,19 +55,24 @@ const HomeScreen = ({ navigation }) => {
     <>
       {/* Posts Feed */}
       <FlatList
-        style={[globalStyles.container, styles.container]}
+        style={[
+          globalStyles.container,
+          styles.container,
+          Platform.OS === "ios" ? { marginBottom: 76 } : { marginBottom: 48 },
+        ]}
         data={posts?.data}
         renderItem={renderPost}
+        ItemSeparatorComponent={() => (
+          <HorizontalLine color={globalStyles.container.backgroundColor} />
+        )}
         keyExtractor={(post) => post.id}
       />
       {/* Floating + icon */}
-      <TouchableOpacity style={styles.addPost}>
-        <Pressable
-          style={styles.plusButton}
-          onPress={() => navigateTo("CreatePost")}
-        >
-          <Entypo name="plus" size={48} color={globalStyles.text.color} />
-        </Pressable>
+      <TouchableOpacity
+        style={styles.plusButton}
+        onPress={() => navigateTo("CreatePost")}
+      >
+        <Feather name="plus" size={44} color={globalStyles.text.color} />
       </TouchableOpacity>
     </>
   );
@@ -76,14 +84,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  addPost: {
+  plusButton: {
     position: "absolute",
     flex: 1,
     left: "40%",
-    right: '40%',
+    right: "40%",
     bottom: 80,
-  },
-  plusButton: {
     backgroundColor: "#5271FF",
     width: 65,
     height: 65,

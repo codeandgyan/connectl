@@ -1,4 +1,10 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import globalStyles from "../../styles/global-styles";
@@ -14,12 +20,12 @@ const PostFooter = ({ numberOfLikes, numberOfConnections }) => {
           {numberOfLikes}
         </Text>
       </View>
-      <Pressable
+      <TouchableOpacity
         style={styles.chatButton}
         onPress={() => navigation.navigate("Chat")}
       >
         <Text style={[globalStyles.text, styles.chatLabel]}>Chat</Text>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -31,6 +37,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingVertical: 4,
   },
   statsBox: {
     flexDirection: "row",
@@ -50,7 +57,7 @@ const styles = StyleSheet.create({
     borderColor: "#6f6f73",
     borderRadius: 15,
     width: 102,
-    padding: 8,
+    padding: 6,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",

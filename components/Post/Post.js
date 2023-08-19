@@ -25,7 +25,6 @@ export default function Post({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: globalStyles.secondaryContainer.backgroundColor,
-    marginTop: 1,
     padding: 8,
     flex: 1,
   },

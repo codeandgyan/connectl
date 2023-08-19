@@ -51,13 +51,20 @@ function Footer() {
           tabBarLabel: "Discover",
           headerShown: false,
           tabBarLabelStyle: { color: styles.default.color },
-          tabBarIcon: ({ focused }) => (
-            <AntDesign
-              name="find"
-              size={24}
-              color={focused ? styles.selected.color : styles.default.color}
-            />
-          ),
+          tabBarIcon: ({ focused }) =>
+            focused ? (
+              <Ionicons
+                name="compass"
+                size={24}
+                color={styles.selected.color}
+              />
+            ) : (
+              <Ionicons
+                name="compass-outline"
+                size={24}
+                color={styles.default.color}
+              />
+            ),
         }}
       />
       <Tab.Screen

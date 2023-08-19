@@ -28,7 +28,7 @@ const CreatePostScreen = () => {
         <KeyboardAvoidingView
           style={{ flex: 1 }}
           behavior={Platform.OS === "ios" ? "padding" : null}
-          keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0} // Adjust this value as needed
+          // keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0} // Adjust this value as needed
         >
           <View style={[styles.container]}>
             <View style={styles.header}>

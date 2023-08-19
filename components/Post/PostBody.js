@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
   tagsContainer: {
     flex: 1,
     flexDirection: "row",
-    alignSelf: "center",
     justifyContent: "flex-start",
     alignContent: "center",
     margin: 2,

@@ -1,11 +1,8 @@
 import {
   FlatList,
   Platform,
-  Pressable,
   StyleSheet,
-  Text,
   TouchableOpacity,
-  View,
 } from "react-native";
 import React from "react";
 import Post from "../components/Post/Post";

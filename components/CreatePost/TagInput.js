@@ -1,11 +1,5 @@
-import {
-  TouchableOpacity,
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-} from "react-native";
-import { AntDesign  } from "@expo/vector-icons";
+import { TouchableOpacity, StyleSheet, View, TextInput } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import React, { useState } from "react";
 import Tag from "../Post/Tag";
 import globalStyles from "../../styles/global-styles";
@@ -22,7 +16,7 @@ const TagInput = ({ style }) => {
 
     if (text.endsWith(",")) {
       const newTag = text.slice(0, -1).trim(); // Remove the comma and trim spaces
-      console.log(`${newTag}bullakijaana`); 
+      console.log(`${newTag}bullakijaana`);
       if (newTag) {
         setTags([...tags, newTag]);
         setTagInput("");
@@ -87,7 +81,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 16,
     fontWeight: 400,
-    marginRight: 40,
+    marginRight: 30,
   },
   closeTag: {
     marginHorizontal: 3,

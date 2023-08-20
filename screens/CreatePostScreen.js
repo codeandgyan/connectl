@@ -1,5 +1,5 @@
 import {
-  Pressable,
+  TouchableOpacity,
   StyleSheet,
   Text,
   SafeAreaView,
@@ -15,6 +15,7 @@ import globalStyles from "../styles/global-styles";
 import PostHeader from "../components/Post/PostHeader";
 import HorizontalLine from "../components/Common/HorizontalLine";
 import { useNavigation } from "@react-navigation/native";
+import TagInput from "../components/CreatePost/TagInput";
 
 const CreatePostScreen = () => {
   const navigation = useNavigation();
@@ -32,25 +33,25 @@ const CreatePostScreen = () => {
         >
           <View style={[styles.container]}>
             <View style={styles.header}>
-              <Pressable
+              <TouchableOpacity
                 style={styles.cancelPress}
                 onPress={() => navigation.navigate("Main")}
               >
                 <Text style={[globalStyles.cancelText, styles.cancelText]}>
                   Cancel
                 </Text>
-              </Pressable>
+              </TouchableOpacity>
               <Text style={[globalStyles.text, styles.titleText]}>
                 Create Post
               </Text>
-              <Pressable
+              <TouchableOpacity
                 style={styles.submitButton}
                 onPress={() => navigation.navigate("Chat")}
               >
                 <Text style={[globalStyles.text, styles.submitLabel]}>
                   Submit
                 </Text>
-              </Pressable>
+              </TouchableOpacity>
             </View>
             <HorizontalLine color={"#36454F"} width={1} />
             <View style={[styles.postSubject]}>
@@ -78,11 +79,12 @@ const CreatePostScreen = () => {
                 style={[globalStyles.text, styles.descriptionText]}
                 onChangeText={(text) => setDescriptionValue(text)}
                 value={descriptionValue}
-                placeholder="Write description"
+                placeholder="Write description..."
                 placeholderTextColor={"#8f8f92"}
                 selectionColor={"#8f8f92"}
                 keyboardAppearance="dark"
               />
+              <TagInput style={{ flex: 1 }} />
             </View>
           </View>
         </KeyboardAvoidingView>
@@ -140,19 +142,21 @@ const styles = StyleSheet.create({
   textInput: {
     backgroundColor: "#2f2f2f",
     flex: 1,
+    padding: 12,
+    justifyContent: "space-between",
   },
   headlineText: {
     backgroundColor: "transparent",
     color: globalStyles.text.color,
-    padding: 12,
     fontSize: 22,
     fontWeight: "bold",
     color: globalStyles.text.color,
   },
   descriptionText: {
+    flex: 3,
+    marginVertical: 8,
     backgroundColor: "transparent",
     color: "#b3b3b6",
-    padding: 12,
     fontSize: 16,
     fontWeight: 400,
   },

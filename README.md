@@ -40,15 +40,16 @@ yarn start
 6. Start your mentorship journey with [This App]!
 
 ## A sneak-peak
-![posts-view-screenshot](https://github.com/codeandgyan/connectl/assets/140544523/32f12515-8188-4d7e-8108-a2c1c6f78fc4)
+![image](https://github.com/codeandgyan/connectl/assets/140544523/2d209e64-0121-4c45-bd83-eff0a63a43bc)
 
-## Contribute
+## Wanna connect with me?
 
-You're welcome to request for any contribution to this app dea! Check out our project on [GitHub](https://github.com/codeandgyan/connectl).
+You're welcome to connect with me if you  want to contribute or simply want to learn React and React Native. Shoot me an email to codeandgyan@gmail.com.
+Check out the project on [GitHub](https://github.com/codeandgyan/connectl).
 
-## License
+## What's next?
 
-[This App] is [MIT licensed](LICENSE.md). Download and connect today for growth and learning!
+Download and connect today for growth and learning!
 
 ---
 

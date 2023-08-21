@@ -5,16 +5,16 @@ import { Entypo } from "@expo/vector-icons";
 import initials from "initials";
 import globalStyles from "../../styles/global-styles";
 
-export default function CreatePostUserDetail({ userid, selectACategory }) {
+export default function CreatePostUserDetail({ userid, selectACategory, selectedCategory }) {
   const queryClient = useQueryClient();
   const users = queryClient.getQueryData("users");
   const postUser = users?.data?.find((user) => user.id === userid);
   console.log("postUser", postUser);
 
-  const [category, setCategory] = useState({
-    categoryId: 0,
-    categoryText: "Select a category",
-  });
+  // const [category, setCategory] = useState({
+  //   categoryId: 0,
+  //   categoryText: selectedCategory,
+  // });
 
   const onPressSelectCategory = () => {
     if (selectACategory) {
@@ -37,7 +37,7 @@ export default function CreatePostUserDetail({ userid, selectACategory }) {
           style={styles.categoryContainer}
           onPress={() => onPressSelectCategory()}
         >
-          <Text style={styles.categoryLabel}>{category.categoryText}</Text>
+          <Text style={styles.categoryLabel}>{selectedCategory}</Text>
           <Entypo
             name="chevron-down"
             size={20}

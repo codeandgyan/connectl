@@ -27,7 +27,7 @@ In today's fast-paced world, personalized guidance is a rarity. [This App] addre
 ## Getting Started
 
 1. Clone the repository: [[This App] Repo](https://github.com/codeandgyan/connectl)
-2. Download "Expo Go" app on your device.
+2. Download "Expo Go" app on your mobile device.
 3. Ensure your machine and device are on the same WiFi network.
 4. Run these commands:
 ```

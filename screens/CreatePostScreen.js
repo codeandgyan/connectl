@@ -18,11 +18,31 @@ import SelectCategoryModal from "../components/CreatePost/SelectCategoryModal";
 
 const CreatePostScreen = () => {
   const [showCategoryOptions, setShowCategoryOptions] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("Select a category");
+
   const Stack = createNativeStackNavigator();
 
-  const toggleSelectACategory = () => {
+  const toggleSelectACategory = (selectedCategory) => {
     Keyboard.dismiss();
+    setSelectedCategory(selectedCategory);
     setShowCategoryOptions(!showCategoryOptions);
+  };
+
+  const openCategorySelection = () => {
+    Keyboard.dismiss();
+    setShowCategoryOptions(true);
+  };
+
+  const closeCategorySelection = () => {
+    Keyboard.dismiss();
+    setShowCategoryOptions(false);
+  };
+
+  const categorySelected = (selectedCategory) => {
+    console.log("selectedCategory ===>", selectedCategory);
+    closeCategorySelection();
+    if (!selectedCategory) return;
+    setSelectedCategory(selectedCategory);
   };
 
   return (
@@ -42,7 +62,8 @@ const CreatePostScreen = () => {
               <View style={[styles.postSubject]}>
                 <CreatePostUserDetail
                   userid={1}
-                  selectACategory={toggleSelectACategory}
+                  selectACategory={openCategorySelection}
+                  selectedCategory={selectedCategory}
                 />
               </View>
               <HorizontalLine color={"#36454F"} width={1} />
@@ -50,7 +71,8 @@ const CreatePostScreen = () => {
             </View>
             <SelectCategoryModal
               isVisible={showCategoryOptions}
-              toggleSelectACategory={toggleSelectACategory}
+              onClose={closeCategorySelection}
+              onSelectCategory={categorySelected}
             />
           </KeyboardAvoidingView>
         </TouchableWithoutFeedback>

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import globalStyles from "../../styles/global-styles";
 import ReactNativeModal from "react-native-modal";
 import CategoryItem from "./CategoryItem";
@@ -13,7 +13,28 @@ import HobbyImg from "../../assets/categories/hobby.png";
 import TravelingImg from "../../assets/categories/traveling.png";
 import MiscellaneousImg from "../../assets/categories/miscellaneous.png";
 
-const SelectCategoryModal = ({ isVisible, toggleSelectACategory }) => {
+const categories = [
+  { categoryid: "cat1", category: "Software Engineering", image: SoftwareEnggImg },
+  { categoryid: "cat2", category: "Career Guidance", image: CareerGuidanceImg },
+  { categoryid: "cat3", category: "Freelancing", image: FreelancingImg },
+  { categoryid: "cat4", category: "English Speaking", image: EnglishSpeakingImg },
+  { categoryid: "cat5", category: "Hobby", image: HobbyImg },
+  { categoryid: "cat6", category: "Traveling", image: TravelingImg },
+  { categoryid: "cat7", category: "Counseling", image: CounselingImg },
+  { categoryid: "cat8", category: "Miscellaneous", image: MiscellaneousImg },
+];
+
+const SelectCategoryModal = ({ isVisible, onClose, onSelectCategory }) => {
+  const [currentCategory, setCurrentCategory] = useState("");
+  const handleSelectCategory = (category) => {
+    setCurrentCategory(category);
+    onSelectCategory && onSelectCategory(category);
+  };
+
+  const handleCloseModal = () => {
+    onClose && onClose();
+  };
+
   return (
     <ReactNativeModal
       isVisible={isVisible}
@@ -21,7 +42,7 @@ const SelectCategoryModal = ({ isVisible, toggleSelectACategory }) => {
       animationOut={"slideOutDown"}
       backdropOpacity={0.4}
       backdropColor="gray"
-      onBackdropPress={toggleSelectACategory}
+      onBackdropPress={handleCloseModal}
       style={{ margin: 0 }}
       coverScreen={true}
       swipeDirection={["down"]}
@@ -32,52 +53,61 @@ const SelectCategoryModal = ({ isVisible, toggleSelectACategory }) => {
           <Text style={[globalStyles.text, styles.title]}>
             {"Select a category"}
           </Text>
-          <CategoryItem
+
+          {categories.map((item) => {
+            return (
+              <CategoryItem
+                src={item.image}
+                categoryText={item.category}
+                onCategorySelected={handleSelectCategory}
+                isSelected={item.category === currentCategory}
+                key={item.categoryid}
+              />
+            );
+          })}
+
+          {/* <CategoryItem
             src={SoftwareEnggImg}
             categoryText={"Software Engineering"}
-            onCategorySelected={toggleSelectACategory}
+            onCategorySelected={handleSelectCategory}
+            isSelected={true}
           />
           <CategoryItem
             src={EnglishSpeakingImg}
             categoryText={"English Speaking"}
-            onCategorySelected={toggleSelectACategory}
+            onCategorySelected={handleSelectCategory}
           />
           <CategoryItem
             src={FreelancingImg}
             categoryText={"Freelancing"}
-            onCategorySelected={toggleSelectACategory}
+            onCategorySelected={handleSelectCategory}
           />
           <CategoryItem
             src={CounselingImg}
             categoryText={"Counseling"}
-            onCategorySelected={toggleSelectACategory}
+            onCategorySelected={handleSelectCategory}
           />
           <CategoryItem
             src={CareerGuidanceImg}
             categoryText={"Career Guidance"}
-            onCategorySelected={toggleSelectACategory}
+            onCategorySelected={handleSelectCategory}
           />
           <CategoryItem
             src={HobbyImg}
             categoryText={"Hobby"}
-            onCategorySelected={toggleSelectACategory}
+            onCategorySelected={handleSelectCategory}
           />
           <CategoryItem
             src={TravelingImg}
             categoryText={"Traveling"}
-            onCategorySelected={toggleSelectACategory}
+            onCategorySelected={handleSelectCategory}
           />
           <CategoryItem
             src={MiscellaneousImg}
             categoryText={"Miscellaneous"}
-            onCategorySelected={toggleSelectACategory}
-          />
+            onCategorySelected={handleSelectCategory}
+          /> */}
         </View>
-        {/* <Text style={globalStyles.text}>This is a category options modal</Text>
-
-        <TouchableOpacity onPress={toggleSelectACategory}>
-          <Text style={globalStyles.link}>Close</Text>
-        </TouchableOpacity> */}
       </View>
     </ReactNativeModal>
   );

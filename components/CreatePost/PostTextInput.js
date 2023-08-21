@@ -23,7 +23,7 @@ const PostTextInput = () => {
         editable
         multiline
         numberOfLines={4}
-        maxLength={80}
+        maxLength={300}
         style={[globalStyles.text, styles.descriptionText]}
         onChangeText={(text) => setDescriptionValue(text)}
         value={descriptionValue}

@@ -16,7 +16,6 @@ const TagInput = ({ style }) => {
 
     if (text.endsWith(",")) {
       const newTag = text.slice(0, -1).trim(); // Remove the comma and trim spaces
-      console.log(`${newTag}bullakijaana`);
       if (newTag) {
         setTags([...tags, newTag]);
         setTagInput("");
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
     padding: 4,
     color: "#FFFFFF",
     fontSize: 16,
-    fontWeight: 400,
+    fontWeight: "400",
     marginRight: 40,
   },
   closeTag: {

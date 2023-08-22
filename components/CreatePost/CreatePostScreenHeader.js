@@ -16,7 +16,7 @@ const CreatePostScreenHeader = () => {
       <Text style={[globalStyles.text, styles.titleText]}>Create Post</Text>
       <TouchableOpacity
         style={styles.submitButton}
-        onPress={() => navigation.navigate("Chat")}
+        onPress={() => navigation.navigate("Main")}
       >
         <Text style={[globalStyles.text, styles.submitLabel]}>Submit</Text>
       </TouchableOpacity>

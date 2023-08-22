@@ -39,7 +39,7 @@ yarn start
 5. Scan the QR code in the terminal using Expo Go.
 6. Start your mentorship journey with [This App]!
 
-## A sneak-peak
+## A sneak-peek
 ![image](https://github.com/codeandgyan/connectl/assets/140544523/2d209e64-0121-4c45-bd83-eff0a63a43bc)
 
 ## Wanna connect with me?

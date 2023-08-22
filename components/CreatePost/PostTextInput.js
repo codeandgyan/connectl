@@ -59,6 +59,6 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "#b3b3b6",
     fontSize: 16,
-    fontWeight: 400,
+    fontWeight: "400",
   },
 });

@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   profileLabel: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: 400,
   },
   postInfo: { flex: 1, paddingLeft: 10 },

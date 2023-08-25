@@ -1,14 +1,14 @@
-# [This App]: Your Personal Guidance and Mentoring Platform
+# MochaChat: Your Personal Guidance and Mentoring Platform
 
-[This App] is your go-to mobile app for connecting seekers with mentors, providing 1x1 guidance across various domains. Whether you're a job seeker, student, or anyone seeking mentorship, [This App] has you covered.
+MochaChat is your go-to mobile app for connecting seekers with mentors, providing 1x1 guidance across various domains. Whether you're a job seeker, student, or anyone seeking mentorship, MochaChat has you covered.
 
 ## Problem
 
-In today's fast-paced world, personalized guidance is a rarity. [This App] addresses this by connecting seekers with mentors, fostering meaningful connections.
+In today's fast-paced world, personalized guidance is a rarity. MochaChat addresses this by connecting seekers with mentors, fostering meaningful connections.
 
 ## Solution
 
-[This App] is a mentorship app that facilitates direct connections between seekers and mentors. It's a hub for knowledge-sharing and professional growth.
+MochaChat is a mentorship app that facilitates direct connections between seekers and mentors. It's a hub for knowledge-sharing and professional growth.
 
 ## Features
 
@@ -26,7 +26,7 @@ In today's fast-paced world, personalized guidance is a rarity. [This App] addre
 
 ## Getting Started
 
-1. Clone the repository: [[This App] Repo](https://github.com/codeandgyan/connectl)
+1. Clone the repository: [MochaChat Repo](https://github.com/codeandgyan/connectl)
 2. Download "Expo Go" app on your mobile device.
 3. Ensure your machine and device are on the same WiFi network.
 4. Run these commands:
@@ -37,7 +37,7 @@ yarn install
 yarn start
 ```
 5. Scan the QR code in the terminal using Expo Go.
-6. Start your mentorship journey with [This App]!
+6. Start your mentorship journey with MochaChat!
 
 ## A sneak-peek
 ![image](https://github.com/codeandgyan/connectl/assets/140544523/2d209e64-0121-4c45-bd83-eff0a63a43bc)
@@ -53,4 +53,4 @@ Download and connect today for growth and learning!
 
 ---
 
-Unleash your potential with [This App]'s mentorship platform. Get started now!
+Unleash your potential with MochaChat's mentorship platform. Get started now!

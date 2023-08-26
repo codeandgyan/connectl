@@ -9,7 +9,6 @@ const CategoryItem = ({
   isSelected,
 }) => {
   const onSelectCategory = () => {
-    console.log(categoryText);
     if (onCategorySelected) {
       onCategorySelected(categoryText);
     }

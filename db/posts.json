@@ -1,0 +1,21 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "catid": 1,
+      "title": "Seeking career guidance",
+      "body": "I’ve completed my bachelor in Computer Science Engineering. I want to get into Artificial Intelligence and machine learning, but I have no idea on where to start. I would appreciate any working professionals in the field of Software Engineering to provide me guidance to get started.",
+      "tags": [
+        "java",
+        "react",
+        "scala",
+        "OOPS",
+        "ML",
+        "microservices",
+        "web sockets"
+      ],
+      "time": ""
+    }
+  ]
+}

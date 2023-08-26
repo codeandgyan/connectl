@@ -40,9 +40,10 @@ const CreatePostScreen = () => {
 
   const categorySelected = (selectedCategory) => {
     console.log("selectedCategory ===>", selectedCategory);
+    if (selectedCategory) {
+      setSelectedCategory(selectedCategory);
+    }
     closeCategorySelection();
-    if (!selectedCategory) return;
-    setSelectedCategory(selectedCategory);
   };
 
   return (
@@ -61,7 +62,7 @@ const CreatePostScreen = () => {
               <HorizontalLine color={"#36454F"} width={1} />
               <View style={[styles.postSubject]}>
                 <CreatePostUserDetail
-                  userid={1}
+                  userid={1} //TODO: Remove hardcoding
                   selectACategory={openCategorySelection}
                   selectedCategory={selectedCategory}
                 />

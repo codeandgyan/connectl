@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ramalingam Srinivasan",
+      "username": "ram",
+      "email": "ram@mochachat.com"
+    }
+  ]
+}

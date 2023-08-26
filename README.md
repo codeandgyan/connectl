@@ -55,13 +55,10 @@ EXPO_PUBLIC_GET_LOCAL_POSTS_URL="http://192.168.0.0:3000/posts"
 EXPO_PUBLIC_DATA_SOURCE="local"
 ```
 5. This will allow all the CRUD operations
-6. Possible values of EXPO_PUBLIC_DATA_SOURCE
-`
-local | remote | fake-remote
-local - will read/write data from db.json
-remote - this is protected by a key & hence you won't be able to use it
-fake-remote - this is the default state. Fake will get loaded
-`
+6. Possible values of EXPO_PUBLIC_DATA_SOURCE are `local | remote | fake-remote`
+   - `local` - will read/write data from [db.json](https://github.com/codeandgyan/connectl/blob/main/db.json)
+   - `remote` - this is protected by a key of a remote tool called [Jsonbin](https://jsonbin.io/app/bins) & hence you won't be able to use it
+   - `fake-remote` - this is the default state. Fake will get loaded
 ## A sneak-peek
 ![image](https://github.com/codeandgyan/connectl/assets/140544523/2d209e64-0121-4c45-bd83-eff0a63a43bc)
 

@@ -4,7 +4,7 @@ import Post from "../components/Post/Post";
 import { Feather } from "@expo/vector-icons";
 import globalStyles from "../styles/global-styles";
 import HorizontalLine from "../components/Common/HorizontalLine";
-import usePostsData from "../hooks/usePostsData";
+import { usePostsData } from "../hooks/usePostsData";
 import useUsersData from "../hooks/useUsersData";
 
 const HomeScreen = ({ navigation }) => {
@@ -27,6 +27,8 @@ const HomeScreen = ({ navigation }) => {
             ? postData.tags
             : ["Java", "Scala", "OOPS", "ML", "Microservices", "Web sockets"] // TODO: Temporarily hardcoded, this can be removed.
         }
+        categoryid={postData.catid ?? "cat1"} // TODO: Temporarily hardcoded, this can be removed.
+        time={postData.time ?? 1693039402561} // TODO: Temporarily hardcoded, this can be removed.
         numberOfLikes={27} //TODO: Remove Hardcoding
         numberOfConnections={2} //TODO: Remove Hardcoding
         key={`post-${post.id}`}

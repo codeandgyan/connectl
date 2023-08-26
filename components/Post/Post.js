@@ -10,14 +10,20 @@ export default function Post({
   headline,
   description,
   userid,
+  tags,
+  time,
+  categoryid,
   numberOfLikes,
   numberOfConnections,
 }) {
   return (
     <View style={styles.container}>
-      <PostHeader userid={userid} />
-      <PostBody headline={headline} description={description} />
-      <PostFooter numberOfLikes={numberOfLikes} numberOfConnections={numberOfConnections} />
+      <PostHeader userid={userid} time={time} categoryid={categoryid} />
+      <PostBody headline={headline} description={description} tags={tags} />
+      <PostFooter
+        numberOfLikes={numberOfLikes}
+        numberOfConnections={numberOfConnections}
+      />
     </View>
   );
 }

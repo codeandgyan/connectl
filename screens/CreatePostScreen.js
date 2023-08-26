@@ -13,20 +13,21 @@ import HorizontalLine from "../components/Common/HorizontalLine";
 import PostTextInput from "../components/CreatePost/PostTextInput";
 import CreatePostScreenHeader from "../components/CreatePost/CreatePostScreenHeader";
 import CreatePostUserDetail from "../components/CreatePost/CreatePostUserDetail";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SelectCategoryModal from "../components/CreatePost/SelectCategoryModal";
+import { useNavigation } from "@react-navigation/native";
+import { useAddPostData } from "../hooks/usePostsData";
+import uuid from "react-native-uuid";
+import { getCurrentEpochTime } from "../helpers/timeUtil";
 
 const CreatePostScreen = () => {
+  const navigation = useNavigation();
   const [showCategoryOptions, setShowCategoryOptions] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("Select a category");
-
-  const Stack = createNativeStackNavigator();
-
-  const toggleSelectACategory = (selectedCategory) => {
-    Keyboard.dismiss();
-    setSelectedCategory(selectedCategory);
-    setShowCategoryOptions(!showCategoryOptions);
-  };
+  const [selectedCategoryId, setSelectedCategoryId] = useState("");
+  const [postHeadline, setPostHeadline] = useState("");
+  const [postDescription, setPostDescription] = useState("");
+  const [tags, setTags] = useState([]);
+  const { mutate: submitPost } = useAddPostData();
 
   const openCategorySelection = () => {
     Keyboard.dismiss();
@@ -38,11 +39,46 @@ const CreatePostScreen = () => {
     setShowCategoryOptions(false);
   };
 
-  const categorySelected = (selectedCategory) => {
-    console.log("selectedCategory ===>", selectedCategory);
+  const categorySelected = (selectedCat, selectedCatId) => {
+    console.log("selectedCategory ===>", selectedCat);
+    if (selectedCat) {
+      setSelectedCategory(selectedCat);
+    }
+    if (selectedCatId) {
+      setSelectedCategoryId(selectedCatId);
+    }
     closeCategorySelection();
-    if (!selectedCategory) return;
-    setSelectedCategory(selectedCategory);
+  };
+
+  const handleHeadline = (headline) => {
+    setPostHeadline(headline);
+  };
+
+  const handleDescription = (desc) => {
+    setPostDescription(desc);
+  };
+
+  const handleTags = (tags) => {
+    setTags(tags);
+  };
+
+  const onSubmitPost = () => {
+    if (!selectedCategoryId || !postHeadline || !postDescription) {
+      return; //TODO: Error
+    }
+    const postId = uuid.v4();
+    const post = {
+      id: postId,
+      userId: 1, //TODO: Current user.
+      catid: selectedCategoryId,
+      title: postHeadline,
+      body: postDescription,
+      tags: tags,
+      time: getCurrentEpochTime(),
+    };
+
+    submitPost(post);
+    navigation.navigate("Main");
   };
 
   return (
@@ -57,17 +93,21 @@ const CreatePostScreen = () => {
             // keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0} // Adjust this value as needed
           >
             <View style={[styles.container]}>
-              <CreatePostScreenHeader />
+              <CreatePostScreenHeader onSubmitPost={() => onSubmitPost()} />
               <HorizontalLine color={"#36454F"} width={1} />
               <View style={[styles.postSubject]}>
                 <CreatePostUserDetail
-                  userid={1}
+                  userid={1} //TODO: Remove hardcoding
                   selectACategory={openCategorySelection}
                   selectedCategory={selectedCategory}
                 />
               </View>
               <HorizontalLine color={"#36454F"} width={1} />
-              <PostTextInput />
+              <PostTextInput
+                onUpdateHeadline={handleHeadline}
+                onUpdateDescription={handleDescription}
+                onTagListUpdated={handleTags}
+              />
             </View>
             <SelectCategoryModal
               isVisible={showCategoryOptions}

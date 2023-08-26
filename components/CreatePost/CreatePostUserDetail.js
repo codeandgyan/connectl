@@ -4,12 +4,17 @@ import { useQueryClient } from "react-query";
 import { Entypo } from "@expo/vector-icons";
 import initials from "initials";
 import globalStyles from "../../styles/global-styles";
+import { getUsersData } from "../../hooks/useUsersData";
 
-export default function CreatePostUserDetail({ userid, selectACategory, selectedCategory }) {
+export default function CreatePostUserDetail({
+  userid,
+  selectACategory,
+  selectedCategory,
+}) {
   const queryClient = useQueryClient();
-  const users = queryClient.getQueryData("users");
-  const postUser = users?.data?.find((user) => user.id === userid);
-  console.log("postUser", postUser);
+  const users = getUsersData(queryClient.getQueryData("users"));
+  const postUser = users?.find((user) => user?.id === userid);
+  // console.log("postUser", postUser);
 
   // const [category, setCategory] = useState({
   //   categoryId: 0,

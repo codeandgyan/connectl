@@ -3,16 +3,28 @@ import React, { useState } from "react";
 import TagInput from "./TagInput";
 import globalStyles from "../../styles/global-styles";
 
-const PostTextInput = () => {
+const PostTextInput = ({ onUpdateHeadline, onUpdateDescription, onTagListUpdated }) => {
   const [headLineValue, setHeadlineValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
+  const onChangeHeadline = (text) => {
+    setHeadlineValue(text);
+    if (onUpdateHeadline) {
+      onUpdateHeadline(text);
+    }
+  };
+  const onChangeDescription = (text) => {
+    setDescriptionValue(text);
+    if (onUpdateDescription) {
+      onUpdateDescription(text);
+    }
+  };
   return (
     <View style={styles.textInput}>
       <TextInput
         editable
         maxLength={80}
         style={[globalStyles.text, styles.headlineText]}
-        onChangeText={(text) => setHeadlineValue(text)}
+        onChangeText={(text) => onChangeHeadline(text)}
         value={headLineValue}
         placeholder="Give your post a headline"
         placeholderTextColor={"#b3b3b6"}
@@ -25,14 +37,14 @@ const PostTextInput = () => {
         numberOfLines={4}
         maxLength={300}
         style={[globalStyles.text, styles.descriptionText]}
-        onChangeText={(text) => setDescriptionValue(text)}
+        onChangeText={(text) => onChangeDescription(text)}
         value={descriptionValue}
         placeholder="Write description..."
         placeholderTextColor={"#8f8f92"}
         selectionColor={"#8f8f92"}
         keyboardAppearance="dark"
       />
-      <TagInput style={{ flex: 1 }} />
+      <TagInput style={{ flex: 1 }} onTagListUpdated={onTagListUpdated} />
     </View>
   );
 };

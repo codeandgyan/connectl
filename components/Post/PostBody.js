@@ -3,20 +3,16 @@ import React from "react";
 import globalStyles from "../../styles/global-styles";
 import Tag from "./Tag";
 
-const PostBody = ({ headline, description }) => {
+const PostBody = ({ headline, description, tags }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.tagsContainer}>
-        {/* Tags */}
-        {/* TODO: Replace Hardcoded values with dynamic */}
-        <Tag tagValue={"java"} />
-        <Tag tagValue={"react"} />
-        <Tag tagValue={"scala"} />
-        <Tag tagValue={"OOPS"} />
-        <Tag tagValue={"ML"} />
-        <Tag tagValue={"microservices"} />
-        <Tag tagValue={"web sockets"} />
-      </View>
+      {tags?.length > 0 && (
+        <View style={styles.tagsContainer}>
+          {tags?.map((tag) => (
+            <Tag tagValue={tag} key={`tag-${tag.replace(" ", "")}`} />
+          ))}
+        </View>
+      )}
       <View style={styles.postContainer}>
         {/* Headline */}
         <Text style={[globalStyles.text, styles.headline]}>{headline}</Text>

@@ -1,25 +1,15 @@
-import {
-  FlatList,
-  Platform,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { FlatList, Platform, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import Post from "../components/Post/Post";
-import { useQuery } from "react-query";
-import axios from "axios";
 import { Feather } from "@expo/vector-icons";
 import globalStyles from "../styles/global-styles";
 import HorizontalLine from "../components/Common/HorizontalLine";
+import { usePostsData } from "../hooks/usePostsData";
+import useUsersData from "../hooks/useUsersData";
 
 const HomeScreen = ({ navigation }) => {
-  const { isLoading: postLoading, data: posts } = useQuery("posts", () => {
-    return axios.get("https://jsonplaceholder.typicode.com/posts");
-  });
-
-  const { isLoading: userLoading, data: users } = useQuery("users", () => {
-    return axios.get("https://jsonplaceholder.typicode.com/users");
-  });
+  const { isLoading: userLoading, data: users } = useUsersData();
+  const { isLoading: postLoading, data: posts } = usePostsData();
 
   const navigateTo = (toScreen) => {
     navigation.navigate(toScreen);
@@ -32,9 +22,16 @@ const HomeScreen = ({ navigation }) => {
         headline={postData.title}
         description={postData.body}
         userid={postData.userId}
+        tags={
+          postData.tags?.length > 0
+            ? postData.tags
+            : ["Java", "Scala", "OOPS", "ML", "Microservices", "Web sockets"] // TODO: Temporarily hardcoded, this can be removed.
+        }
+        categoryid={postData.catid ?? "cat1"} // TODO: Temporarily hardcoded, this can be removed.
+        time={postData.time ?? 1693039402561} // TODO: Temporarily hardcoded, this can be removed.
         numberOfLikes={27} //TODO: Remove Hardcoding
         numberOfConnections={2} //TODO: Remove Hardcoding
-        key={post.id}
+        key={`post-${post.id}`}
       />
     );
   };
@@ -57,12 +54,13 @@ const HomeScreen = ({ navigation }) => {
           styles.container,
           Platform.OS === "ios" ? { marginBottom: 76 } : { marginBottom: 48 },
         ]}
-        data={posts?.data}
+        // data={posts?.data}
+        data={posts}
         renderItem={renderPost}
         ItemSeparatorComponent={() => (
           <HorizontalLine color={globalStyles.container.backgroundColor} />
         )}
-        keyExtractor={(post) => post.id}
+        keyExtractor={(post) => `post-${post.id}`}
       />
       {/* Floating + icon */}
       <TouchableOpacity

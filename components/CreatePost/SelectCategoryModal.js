@@ -3,32 +3,13 @@ import React, { useState } from "react";
 import globalStyles from "../../styles/global-styles";
 import ReactNativeModal from "react-native-modal";
 import CategoryItem from "./CategoryItem";
-
-import SoftwareEnggImg from "../../assets/categories/software-engineering.png";
-import EnglishSpeakingImg from "../../assets/categories/english-speaking.png";
-import FreelancingImg from "../../assets/categories/freelancing.png";
-import CounselingImg from "../../assets/categories/counseling.png";
-import CareerGuidanceImg from "../../assets/categories/career-guidance.png";
-import HobbyImg from "../../assets/categories/hobby.png";
-import TravelingImg from "../../assets/categories/traveling.png";
-import MiscellaneousImg from "../../assets/categories/miscellaneous.png";
-
-const categories = [
-  { categoryid: "cat1", category: "Software Engineering", image: SoftwareEnggImg },
-  { categoryid: "cat2", category: "Career Guidance", image: CareerGuidanceImg },
-  { categoryid: "cat3", category: "Freelancing", image: FreelancingImg },
-  { categoryid: "cat4", category: "English Speaking", image: EnglishSpeakingImg },
-  { categoryid: "cat5", category: "Hobby", image: HobbyImg },
-  { categoryid: "cat6", category: "Traveling", image: TravelingImg },
-  { categoryid: "cat7", category: "Counseling", image: CounselingImg },
-  { categoryid: "cat8", category: "Miscellaneous", image: MiscellaneousImg },
-];
+import { categories } from "../Common/CategoryList";
 
 const SelectCategoryModal = ({ isVisible, onClose, onSelectCategory }) => {
-  const [currentCategory, setCurrentCategory] = useState("");
-  const handleSelectCategory = (category) => {
-    setCurrentCategory(category);
-    onSelectCategory && onSelectCategory(category);
+  const [currentCategoryId, setCurrentCategoryId] = useState("");
+  const handleSelectCategory = (category, categoryId) => {
+    setCurrentCategoryId(categoryId);
+    onSelectCategory && onSelectCategory(category, categoryId);
   };
 
   const handleCloseModal = () => {
@@ -60,7 +41,8 @@ const SelectCategoryModal = ({ isVisible, onClose, onSelectCategory }) => {
                 src={item.image}
                 categoryText={item.category}
                 onCategorySelected={handleSelectCategory}
-                isSelected={item.category === currentCategory}
+                categoryId={item.categoryid}
+                isSelected={item.categoryid === currentCategoryId}
                 key={item.categoryid}
               />
             );

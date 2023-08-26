@@ -14,7 +14,7 @@ export default function CreatePostUserDetail({
   const queryClient = useQueryClient();
   const users = getUsersData(queryClient.getQueryData("users"));
   const postUser = users?.find((user) => user?.id === userid);
-  console.log("postUser", postUser);
+  // console.log("postUser", postUser);
 
   // const [category, setCategory] = useState({
   //   categoryId: 0,

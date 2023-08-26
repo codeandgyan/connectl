@@ -2,14 +2,18 @@ import axios from "axios";
 import { useQuery } from "react-query";
 
 const fetchUsers = () => {
-  if (process.env.EXPO_PUBLIC_DO_NOT_USE_DUMMY === "true") {
-    return axios.get(process.env.EXPO_PUBLIC_GET_USERS_URL, {
-      headers: {
-        "X-Access-Key": process.env.EXPO_PUBLIC_X_ACCESS_KEY,
-      },
-    });
+  switch (process.env.EXPO_PUBLIC_DATA_SOURCE) {
+    case "local":
+      return axios.get(process.env.EXPO_PUBLIC_GET_LOCAL_USERS_URL);
+    case "remote":
+      return axios.get(process.env.EXPO_PUBLIC_GET_USERS_URL, {
+        headers: {
+          "X-Access-Key": process.env.EXPO_PUBLIC_X_ACCESS_KEY,
+        },
+      });
+    default:
+      return axios.get("https://jsonplaceholder.typicode.com/users");
   }
-  return axios.get("https://jsonplaceholder.typicode.com/users");
 };
 
 const useUsersData = () => {
@@ -22,7 +26,7 @@ const useUsersData = () => {
 };
 
 export const getUsersData = (data) => {
-  if (process.env.EXPO_PUBLIC_DO_NOT_USE_DUMMY === "true") {
+  if (process.env.EXPO_PUBLIC_DATA_SOURCE === "remote") {
     return data?.data?.record?.users;
   }
   return data?.data;

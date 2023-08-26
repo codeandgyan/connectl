@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Tag from "../Post/Tag";
 import globalStyles from "../../styles/global-styles";
 
-const TagInput = ({ style }) => {
+const TagInput = ({ style, onTagListUpdated }) => {
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState("");
   const [placeholder, setPlaceHolder] = useState(
@@ -17,9 +17,13 @@ const TagInput = ({ style }) => {
     if (text.endsWith(",")) {
       const newTag = text.slice(0, -1).trim(); // Remove the comma and trim spaces
       if (newTag) {
-        setTags([...tags, newTag]);
+        const updatedTags = [...tags, newTag];
+        setTags(updatedTags);
         setTagInput("");
         setPlaceHolder("Add tags");
+        if(onTagListUpdated){
+          onTagListUpdated(updatedTags);
+        }
       }
     }
   };

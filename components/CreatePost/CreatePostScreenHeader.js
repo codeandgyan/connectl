@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import globalStyles from "../../styles/global-styles";
 
-const CreatePostScreenHeader = () => {
+const CreatePostScreenHeader = ({ onSubmitPost }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.header}>
@@ -16,7 +16,11 @@ const CreatePostScreenHeader = () => {
       <Text style={[globalStyles.text, styles.titleText]}>Create Post</Text>
       <TouchableOpacity
         style={styles.submitButton}
-        onPress={() => navigation.navigate("Main")}
+        onPress={() => {
+          if (onSubmitPost) {
+            onSubmitPost();
+          }
+        }}
       >
         <Text style={[globalStyles.text, styles.submitLabel]}>Submit</Text>
       </TouchableOpacity>

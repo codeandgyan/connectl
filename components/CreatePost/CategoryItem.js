@@ -4,13 +4,14 @@ import globalStyles from "../../styles/global-styles";
 
 const CategoryItem = ({
   src,
+  categoryId,
   categoryText,
   onCategorySelected,
   isSelected,
 }) => {
   const onSelectCategory = () => {
     if (onCategorySelected) {
-      onCategorySelected(categoryText);
+      onCategorySelected(categoryText, categoryId);
     }
   };
   return (

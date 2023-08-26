@@ -4,12 +4,14 @@ import { useQueryClient } from "react-query";
 import initials from "initials";
 import globalStyles from "../../styles/global-styles";
 import { getUsersData } from "../../hooks/useUsersData";
+import { convertEpochToRelativeTime } from "../../helpers/timeUtil";
+import { getCategoryById } from "../Common/CategoryList";
 
-export default function PostHeader({ userid }) {
+export default function PostHeader({ userid, categoryid, time }) {
   const queryClient = useQueryClient();
   const users = getUsersData(queryClient.getQueryData("users"));
   const postUser = users?.find((user) => user?.id === userid);
-  console.log("postUser", postUser);
+  const categoryInfo = getCategoryById(categoryid);
 
   return (
     <View style={styles.container}>
@@ -22,10 +24,12 @@ export default function PostHeader({ userid }) {
         <Text style={[globalStyles.text, styles.nameLabel]}>
           {postUser?.name}
         </Text>
-        <Text style={styles.categoryLabel}>Software Engineering</Text>
+        <Text style={styles.categoryLabel}>{categoryInfo?.category}</Text>
         <Text
           style={[globalStyles.text, styles.userInfoLabel]}
-        >{`@${postUser?.username?.toLowerCase()} • Student • 14h`}</Text>
+        >{`@${postUser?.username?.toLowerCase()} • ${convertEpochToRelativeTime(
+          time
+        )}`}</Text>
       </View>
     </View>
   );

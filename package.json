@@ -10,11 +10,16 @@
     "serve-json": "json-server --watch db.json --port 4000"
   },
   "dependencies": {
+    "@react-native-firebase/app": "^18.3.1",
+    "@react-native-firebase/auth": "^18.3.1",
+    "@react-native-google-signin/google-signin": "^10.0.1",
     "@react-navigation/bottom-tabs": "^6.5.8",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
     "axios": "^1.4.0",
     "expo": "~49.0.7",
+    "expo-auth-session": "~5.0.2",
+    "expo-crypto": "~12.4.1",
     "expo-status-bar": "~1.6.0",
     "initials": "^3.1.2",
     "json-server": "^0.17.3",

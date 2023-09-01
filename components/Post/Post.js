@@ -23,6 +23,8 @@ export default function Post({
       <PostFooter
         numberOfLikes={numberOfLikes}
         numberOfConnections={numberOfConnections}
+        postBody={{headline, description, tags}}
+        postUserId={userid}
       />
     </View>
   );

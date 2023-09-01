@@ -14,6 +14,9 @@ const globalStyles = StyleSheet.create({
   text: {
     color: "#FFFFFF",
   },
+  textInputBackground: {
+    backgroundColor: "#2f2f2f",
+  },
   link: {
     color: "#0000EE",
     fontSize: 16,

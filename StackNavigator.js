@@ -46,8 +46,7 @@ const StackNavigator = () => {
             name="Login"
             component={LoginScreen}
             options={{
-              headerShown: true,
-              header: Header,
+              headerShown: false,
             }}
           />
         </>

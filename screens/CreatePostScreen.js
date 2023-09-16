@@ -18,16 +18,18 @@ import { useNavigation } from "@react-navigation/native";
 import { useAddPostData } from "../hooks/usePostsData";
 import uuid from "react-native-uuid";
 import { getCurrentEpochTime } from "../helpers/timeUtil";
+import useAuth from "../hooks/useAuth";
 
 const CreatePostScreen = () => {
   const navigation = useNavigation();
-  const [showCategoryOptions, setShowCategoryOptions] = useState(false);
+  const [showCategoryOptions, setShowCategoryOptions] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("Select a category");
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
   const [postHeadline, setPostHeadline] = useState("");
   const [postDescription, setPostDescription] = useState("");
   const [tags, setTags] = useState([]);
   const { mutate: submitPost } = useAddPostData();
+  const { user } = useAuth();
 
   const openCategorySelection = () => {
     Keyboard.dismiss();
@@ -69,7 +71,7 @@ const CreatePostScreen = () => {
     const postId = uuid.v4();
     const post = {
       id: postId,
-      userId: 1, //TODO: Current user.
+      userId: user?.userid,
       catid: selectedCategoryId,
       title: postHeadline,
       body: postDescription,
@@ -97,7 +99,7 @@ const CreatePostScreen = () => {
               <HorizontalLine color={"#36454F"} width={1} />
               <View style={[styles.postSubject]}>
                 <CreatePostUserDetail
-                  userid={1} //TODO: Remove hardcoding
+                  userid={user?.userid}
                   selectACategory={openCategorySelection}
                   selectedCategory={selectedCategory}
                 />
@@ -127,9 +129,6 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 20,
     flex: 1,
-    // borderStyle: "solid",
-    // borderColor: "yellow",
-    // borderWidth: 5,
   },
   postSubject: {
     borderColor: "#6f6f73",

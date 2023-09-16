@@ -1,22 +1,26 @@
-# MochaChat: Your Personal Guidance and Mentoring Platform
+# Seekerz: Your personalized 1x1 connections and guidance platform
 
-MochaChat is your go-to mobile app for connecting seekers with mentors, providing 1x1 guidance across various domains. Whether you're a job seeker, student, or anyone seeking mentorship, MochaChat has you covered.
+Seekerz is a go-to mobile app that helps you form meaningful connections with likeminded people, mentors, code friends, learning buddies, travel partners, et al by providing a direct chat messaging capability. Whether you're a coder learning to code, a job seeker looking for guidance, a student seeking career guidance, or someone seeking mentorship, Seekerz has you covered.
 
-## Problem
+## The Problem
 
-In today's fast-paced world, personalized guidance is a rarity. MochaChat addresses this by connecting seekers with mentors, fostering meaningful connections.
+- In today's social-media world, personalized connection is a rarity.
+- It's hard to connect with a professional who can guide you learn what you're looking for.
+- It's hard to find a mentor that can help you do better in your profession.
+- It's hard to find a fellow coder with whom you can build and learn a software app.
+- It's hard to find a buddy with whom you can learn a language.
 
-## Solution
+## The Solution
+- Seekerz addresses the problem by directly connecting seekers with likeminded people fostering meaningful connections and learning.
 
-MochaChat is a mentorship app that facilitates direct connections between seekers and mentors. It's a hub for knowledge-sharing and professional growth.
+- Seekerz facilitates direct 1x1 connections between seekers and providers. It's a hub for knowledge-sharing and professional growth.
 
 ## Features
 
-- **Smart Matching:** Connects seekers with relevant mentors.
+- **Smart Matching:** Connects seekers with likeminded people, mentors and guides.
 - **Direct Messaging:** In-app chat for easy communication.
 - **Resource Sharing:** Mentors can share insightful resources.
 - **Scheduling:** Convenient session scheduling.
-- **Feedback:** Rate and review mentoring experiences.
 
 ## Tech Stack
 
@@ -26,7 +30,7 @@ MochaChat is a mentorship app that facilitates direct connections between seeker
 
 ## Getting Started
 
-1. Clone the repository: [MochaChat Repo](https://github.com/codeandgyan/connectl)
+1. Clone the repository: [Seekerz Repo](https://github.com/codeandgyan/connectl)
 2. Download "Expo Go" app on your mobile device.
 3. Ensure your machine and device are on the same WiFi network.
 4. Run these commands:
@@ -37,7 +41,7 @@ yarn install
 yarn start
 ```
 5. Scan the QR code in the terminal using Expo Go.
-6. Start your mentorship journey with MochaChat!
+6. Start your learning journey by 1x1 connections with Seekerz!
 
 ## Setting up local DB
 1. This project uses json-server library and db.json to mimic the backend & DB.
@@ -69,8 +73,8 @@ Check out the project on [GitHub](https://github.com/codeandgyan/connectl).
 
 ## What's next?
 
-Download and connect today for growth and learning!
+Download and connect today for personal growth and learning!
 
 ---
 
-Unleash your potential with MochaChat's mentorship platform. Get started now!
+Unleash your potential with Seekerz's 1x1 connection platform. Get started now!

@@ -19,7 +19,7 @@ const PostTextInput = ({ onUpdateHeadline, onUpdateDescription, onTagListUpdated
     }
   };
   return (
-    <View style={styles.textInput}>
+    <View style={[globalStyles.textInputBackground, styles.textInputContainer]}>
       <TextInput
         editable
         maxLength={80}
@@ -28,7 +28,6 @@ const PostTextInput = ({ onUpdateHeadline, onUpdateDescription, onTagListUpdated
         value={headLineValue}
         placeholder="Give your post a headline"
         placeholderTextColor={"#b3b3b6"}
-        selectionColor={"#b3b3b6"}
         keyboardAppearance="dark"
       />
       <TextInput
@@ -41,7 +40,6 @@ const PostTextInput = ({ onUpdateHeadline, onUpdateDescription, onTagListUpdated
         value={descriptionValue}
         placeholder="Write description..."
         placeholderTextColor={"#8f8f92"}
-        selectionColor={"#8f8f92"}
         keyboardAppearance="dark"
       />
       <TagInput style={{ flex: 1 }} onTagListUpdated={onTagListUpdated} />
@@ -52,8 +50,7 @@ const PostTextInput = ({ onUpdateHeadline, onUpdateDescription, onTagListUpdated
 export default PostTextInput;
 
 const styles = StyleSheet.create({
-  textInput: {
-    backgroundColor: "#2f2f2f",
+  textInputContainer: {
     flex: 1,
     padding: 12,
     justifyContent: "space-between",
@@ -63,7 +60,6 @@ const styles = StyleSheet.create({
     color: globalStyles.text.color,
     fontSize: 22,
     fontWeight: "bold",
-    color: globalStyles.text.color,
   },
   descriptionText: {
     flex: 3,

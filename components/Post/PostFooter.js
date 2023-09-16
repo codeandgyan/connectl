@@ -4,7 +4,7 @@ import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import globalStyles from "../../styles/global-styles";
 import { useNavigation } from "@react-navigation/native";
 
-const PostFooter = ({ numberOfLikes, numberOfConnections }) => {
+const PostFooter = ({ numberOfLikes, numberOfConnections, postBody, postUserId }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.footer}>
@@ -16,7 +16,7 @@ const PostFooter = ({ numberOfLikes, numberOfConnections }) => {
       </View>
       <TouchableOpacity
         style={styles.chatButton}
-        onPress={() => navigation.navigate("Chat")}
+        onPress={() => navigation.navigate("Chat", { postBody, postUserId })}
       >
         <Text style={[globalStyles.text, styles.chatLabel]}>Chat</Text>
       </TouchableOpacity>
